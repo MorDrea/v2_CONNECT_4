@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023/05/15 18:32:14.043,=C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Unit13.pas</Transaction>
-    <Transaction>2023/05/16 11:23:09.297,D:\CONNECT_4_v2\Unit13.pas=C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Unit13.pas</Transaction>
-    <Transaction>2023/05/16 11:23:09.297,D:\CONNECT_4_v2\Unit13.dfm=C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Unit13.dfm</Transaction>
-    <Transaction>2023/05/16 11:23:14.983,D:\CONNECT_4_v2\Project11.dproj=C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Project11.dproj</Transaction>
+	<Transactions>
+    <Transaction>2023/05/15 18:32:14.000.043,=C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Unit13.pas</Transaction>
+    <Transaction>2023/05/16 11:23:09.000.297,C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Unit13.dfm=D:\CONNECT_4_v2\Unit13.dfm</Transaction>
+    <Transaction>2023/05/16 11:23:09.000.297,C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Unit13.pas=D:\CONNECT_4_v2\Unit13.pas</Transaction>
+    <Transaction>2023/05/16 11:23:14.000.983,C:\Users\Merscial#Raymond\Documents\Embarcadero\Studio\Projets\Project11.dproj=D:\CONNECT_4_v2\Project11.dproj</Transaction>
   </Transactions>
 </BorlandProject>

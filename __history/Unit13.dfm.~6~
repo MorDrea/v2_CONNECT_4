@@ -1,11 +1,9 @@
 object Form13: TForm13
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
-  BorderStyle = bsNone
   Caption = 'Form13'
-  ClientHeight = 543
-  ClientWidth = 827
+  ClientHeight = 822
+  ClientWidth = 811
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,46 +11,14 @@ object Form13: TForm13
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
-  OnCreate = moon
   PixelsPerInch = 96
   TextHeight = 13
-  object Label4: TLabel
-    Left = 281
-    Top = 518
-    Width = 238
-    Height = 15
-    Alignment = taCenter
-    Caption = 'Par MorDrea, Powered by KOSMOS TECH'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Cambria'
-    Font.Style = [fsBold, fsItalic]
-    ParentFont = False
-  end
-  object Label5: TLabel
-    Left = 735
-    Top = 518
-    Width = 64
-    Height = 15
-    Alignment = taCenter
-    Caption = 'Version 1.2'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Cambria'
-    Font.Style = [fsBold, fsItalic]
-    ParentFont = False
-  end
   object FlowPanel1: TFlowPanel
-    Left = 215
-    Top = 46
+    Left = 208
+    Top = 40
     Width = 401
     Height = 441
-    BevelOuter = bvSpace
-    BiDiMode = bdLeftToRight
-    ParentBiDiMode = False
+    BorderStyle = bsSingle
     ShowCaption = False
     TabOrder = 0
     object Shape1: TShape
@@ -361,21 +327,39 @@ object Form13: TForm13
       TabOrder = 5
       OnClick = Button6Click
     end
+    object Memo1: TMemo
+      Left = 1
+      Top = 433
+      Width = 185
+      Height = 89
+      Lines.Strings = (
+        'Memo1')
+      TabOrder = 6
+    end
+  end
+  object Memo2: TMemo
+    Left = 141
+    Top = 530
+    Width = 361
+    Height = 198
+    Lines.Strings = (
+      'Memo2')
+    TabOrder = 1
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 827
+    Width = 811
     Height = 41
     Align = alTop
-    TabOrder = 1
+    TabOrder = 2
     ExplicitLeft = 64
     ExplicitTop = 24
     ExplicitWidth = 185
     object Label1: TLabel
       Left = 1
       Top = 1
-      Width = 825
+      Width = 809
       Height = 39
       Align = alClient
       Alignment = taCenter
@@ -393,12 +377,10 @@ object Form13: TForm13
   end
   object Panel2: TPanel
     Left = 0
-    Top = 41
-    Width = 209
-    Height = 502
-    Align = alLeft
-    TabOrder = 2
-    ExplicitHeight = 463
+    Top = 40
+    Width = 205
+    Height = 441
+    TabOrder = 3
     object Label2: TLabel
       Left = 72
       Top = 16
@@ -489,11 +471,11 @@ object Form13: TForm13
     end
   end
   object Panel3: TPanel
-    Left = 622
-    Top = 41
+    Left = 607
+    Top = 40
     Width = 205
-    Height = 502
-    TabOrder = 3
+    Height = 441
+    TabOrder = 4
     object Button9: TButton
       Left = 16
       Top = 152

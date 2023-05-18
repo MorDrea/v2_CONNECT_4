@@ -51,8 +51,23 @@ type
     Button4: TButton;
     Button5: TButton;
     Button6: TButton;
-    Memo1: TMemo;
-    Memo2: TMemo;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Shape37: TShape;
+    Shape38: TShape;
+    Shape39: TShape;
+    Shape40: TShape;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Label4: TLabel;
+    Label5: TLabel;
     procedure InitGrid();
     procedure changeColor(Acase : array of TShape; AIndex : Integer);
     procedure Button1Click(Sender: TObject);
@@ -61,10 +76,15 @@ type
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
-    procedure vertiVerif();
-    procedure horizVerif();
-    procedure diagVerif();
+    function vertiVerif(): boolean;
+    function horizVerif(): boolean;
+    function diagVerif() : boolean;
     procedure matXP();
+    procedure Button11Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure afficheScore();
+    procedure moon(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -80,6 +100,8 @@ var
   Toogle : Boolean = False;
   a : Integer = 0;
   b : Integer = 0;
+  score1 : Integer = 0;
+  score2 : Integer = 0;
 
 implementation
 
@@ -94,11 +116,21 @@ begin
        for J := 0 to 5 do
          begin
            Grid[I][J] := randomRange(100,200);
+           TShape(FindComponent('Shape'+IntToStr(((I)*6)+(J+1)))).Brush.Color := clWhite;
+           state[J] := 0;
          end;
      end;
-     Memo2.Lines.Clear;
+     Memo2.Lines.clear;
+     Toogle := false;
 end;
 
+
+
+procedure TForm13.afficheScore();
+begin
+  Panel4.Caption := IntToStr(score1);
+  Panel5.Caption := IntToStr(score2);
+end;
 
 
 procedure TForm13.matXP();
@@ -116,10 +148,16 @@ begin
 
 end;
 
-procedure TForm13.diagVErif();
+procedure TForm13.moon(Sender: TObject);
+begin
+  InitGrid;
+end;
+
+function TForm13.diagVErif(): boolean;
 var
 I, J : Integer;
 begin
+result := false;
 for I := 0 to 2 do
   begin
     for J := 0 to 2 do
@@ -128,21 +166,30 @@ for I := 0 to 2 do
         if ((Grid[I][J] = Grid[I+1][J+1]) and (Grid[I+1][J+1] = Grid[I+2][J+2]) and (Grid[I+2][J+2] = Grid[I+3][J+3]) and (Grid[I+3][J+3] = 5))then
         begin
                       case I of
-                      0 : begin a := 6; end;
-                      1 : begin a := 5; end;
-                      2 : begin a := 4; end;
+                      0 : begin a := 5; end;
+                      1 : begin a := 4; end;
+                      2 : begin a := 3; end;
                       end;
-          TShape(FindComponent('Shape'+IntToStr(J+(a*6)))).Brush.Color := WinColor[0];
-          TShape(FindComponent('Shape'+IntToStr(J+1+((a-1)*6)))).Brush.Color := WinColor[0];
-          TShape(FindComponent('Shape'+IntToStr(J+2+((a-2)*6)))).Brush.Color := WinColor[0];
-          TShape(FindComponent('Shape'+IntToStr(J+3+((a-3)*6)))).Brush.Color := WinColor[0];
+          TShape(FindComponent('Shape'+IntToStr((J-2)+((a-2)*6)))).Brush.Color := WinColor[0];
+          TShape(FindComponent('Shape'+IntToStr(J+1+((a)*6)))).Brush.Color := WinColor[0];
+          TShape(FindComponent('Shape'+IntToStr(J+2+((a-1)*6)))).Brush.Color := WinColor[0];
+          TShape(FindComponent('Shape'+IntToStr(J+3+((a-2)*6)))).Brush.Color := WinColor[0];
+            result := true;
+            Inc(score1,1);
             ShowMessage('Joueur 1 GAGNE !');
           end else if ((Grid[I][J] = Grid[I+1][J+1]) and (Grid[I+1][J+1] = Grid[I+2][J+2]) and(Grid[I+2][J+2] = Grid[I+3][J+3]) and(Grid[I+3][J+3] = -5)) then
                    begin
-                     TShape(FindComponent('Shape'+IntToStr(J+(a*6)))).Brush.Color := WinColor[1];
-                     TShape(FindComponent('Shape'+IntToStr(J+1+((a-1)*6)))).Brush.Color := WinColor[1];
-                     TShape(FindComponent('Shape'+IntToStr(J+2+((a-2)*6)))).Brush.Color := WinColor[1];
-                     TShape(FindComponent('Shape'+IntToStr(J+3+((a-3)*6)))).Brush.Color := WinColor[1];
+                   case I of
+                      0 : begin a := 5; end;
+                      1 : begin a := 4; end;
+                      2 : begin a := 3; end;
+                      end;
+                     TShape(FindComponent('Shape'+IntToStr((J-2)+((a-2)*6)))).Brush.Color := WinColor[1];
+                     TShape(FindComponent('Shape'+IntToStr(J+1+((a)*6)))).Brush.Color := WinColor[1];
+                     TShape(FindComponent('Shape'+IntToStr(J+2+((a-1)*6)))).Brush.Color := WinColor[1];
+                     TShape(FindComponent('Shape'+IntToStr(J+3+((a-2)*6)))).Brush.Color := WinColor[1];
+                       result := true;
+                       Inc(score2,1);
                        ShowMessage('Joueur 2 GAGNE !');
                    end;
           
@@ -157,17 +204,37 @@ for I := 0 to 2 do
       
         if ((Grid[I][J] = Grid[I+1][J-1]) and (Grid[I+1][J-1] = Grid[I+2][J-2]) and (Grid[I+2][J-2] = Grid[I+3][J-3]) and (Grid[I+3][J-3] = 5))then
         begin
-          TShape(FindComponent('Shape'+IntToStr(I+(J*6)))).Brush.Color := WinColor[0];
-          TShape(FindComponent('Shape'+IntToStr(I+1+(J*6)))).Brush.Color := WinColor[0];
-          TShape(FindComponent('Shape'+IntToStr(I+2+(J*6)))).Brush.Color := WinColor[0];
-          TShape(FindComponent('Shape'+IntToStr(I+3+(J*6)))).Brush.Color := WinColor[0];
+                      case I of
+                      0 : begin a := 5; end;
+                      1 : begin a := 4; end;
+                      2 : begin a := 3; end;
+                      3 : begin a := 2; end;
+                      4 : begin a := 1; end;
+                      5 : begin a := 0; end;
+                      end;
+                      TShape(FindComponent('Shape'+IntToStr((J-8)+(a-2)*6))).Brush.Color := WinColor[0];
+                     TShape(FindComponent('Shape'+IntToStr(J-7+((a-1)*6)))).Brush.Color := WinColor[0];
+                     TShape(FindComponent('Shape'+IntToStr(J-6+((a)*6)))).Brush.Color := WinColor[0];
+                     TShape(FindComponent('Shape'+IntToStr(J-5+((a+1)*6)))).Brush.Color := WinColor[0];
+            result := true;
+            Inc(score1,1);
             ShowMessage('Joueur 1 GAGNE !');
           end else if ((Grid[I][J] = Grid[I+1][J-1]) and (Grid[I+1][J-1] = Grid[I+2][J-2]) and(Grid[I+2][J-2] = Grid[I+3][J-3]) and(Grid[I+3][J-3] = -5)) then
                    begin
-                     TShape(FindComponent('Shape'+IntToStr(I+(J*6)))).Brush.Color := WinColor[1];
-                     TShape(FindComponent('Shape'+IntToStr(I+1+(J*6)))).Brush.Color := WinColor[1];
-                     TShape(FindComponent('Shape'+IntToStr(I+2+(J*6)))).Brush.Color := WinColor[1];
-                     TShape(FindComponent('Shape'+IntToStr(I+3+(J*6)))).Brush.Color := WinColor[1];
+                   case I of
+                      0 : begin a := 5; end;
+                      1 : begin a := 4; end;
+                      2 : begin a := 3; end;
+                      3 : begin a := 2; end;
+                      4 : begin a := 1; end;
+                      5 : begin a := 0; end;
+                      end;
+                     TShape(FindComponent('Shape'+IntToStr((J-8)+(a-2)*6))).Brush.Color := WinColor[1];
+                     TShape(FindComponent('Shape'+IntToStr(J-7+((a-1)*6)))).Brush.Color := WinColor[1];
+                     TShape(FindComponent('Shape'+IntToStr(J-6+((a)*6)))).Brush.Color := WinColor[1];
+                     TShape(FindComponent('Shape'+IntToStr(J-5+((a+1)*6)))).Brush.Color := WinColor[1];
+                       result := true;
+                       Inc(score2,1);
                        ShowMessage('Joueur 2 GAGNE !');
                    end;
           
@@ -177,10 +244,11 @@ for I := 0 to 2 do
 
 end;
 
-procedure TForm13.horizVerif();
+function TForm13.horizVerif(): boolean;
 var
 I, J : Integer;
 begin
+result := false;
 for I := 0 to 5 do
   begin
     for J := 0 to 2 do
@@ -199,6 +267,8 @@ for I := 0 to 5 do
                      TShape(FindComponent('Shape'+IntToStr(J+2+(a*6)))).Brush.Color := WinColor[0];
                      TShape(FindComponent('Shape'+IntToStr(J+3+(a*6)))).Brush.Color := WinColor[0];
                      TShape(FindComponent('Shape'+IntToStr(J+4+(a*6)))).Brush.Color := WinColor[0];
+                     result := true;
+                     Inc(score1,1);
             ShowMessage('Joueur 1 GAGNE !');
           end else if ((Grid[I][J] = Grid[I][J+1]) and (Grid[I][J+1] = Grid[I][J+2]) and (Grid[I][J+2] = Grid[I][J+3]) and (Grid[I][J+3] = -5)) then
                    begin
@@ -214,6 +284,8 @@ for I := 0 to 5 do
                      TShape(FindComponent('Shape'+IntToStr(J+2+(a*6)))).Brush.Color := WinColor[1];
                      TShape(FindComponent('Shape'+IntToStr(J+3+(a*6)))).Brush.Color := WinColor[1];
                      TShape(FindComponent('Shape'+IntToStr(J+4+(a*6)))).Brush.Color := WinColor[1];
+                      result := true;
+                      Inc(score2,1);
                        ShowMessage('Joueur 2 GAGNE !');
                    end;
         end;
@@ -221,10 +293,11 @@ for I := 0 to 5 do
 end;
 
 
-procedure TForm13.vertiVerif();
+function TForm13.vertiVerif(): boolean;
 var
 I, J : Integer;
 begin
+  result := false;
 for J := 0 to 5 do
   begin
     for I := 0 to 2 do
@@ -242,6 +315,8 @@ for J := 0 to 5 do
           TShape(FindComponent('Shape'+IntToStr(J-5+((b-2)*6)))).Brush.Color := WinColor[0];
           TShape(FindComponent('Shape'+IntToStr(J-5+((b-3)*6)))).Brush.Color := WinColor[0];
             ShowMessage('Joueur 1 GAGNE !');
+            Inc(score1,1);
+            result := true;
           end else if ((Grid[I][J] = Grid[I+1][J]) and (Grid[I+1][J] = Grid[I+2][J]) and(Grid[I+2][J] = Grid[I+3][J]) and(Grid[I+3][J] = -5)) then
                    begin
                    case I of
@@ -254,6 +329,8 @@ for J := 0 to 5 do
                      TShape(FindComponent('Shape'+IntToStr(J-5+((b-2)*6)))).Brush.Color := WinColor[1];
                      TShape(FindComponent('Shape'+IntToStr(J-5+((b-3)*6)))).Brush.Color := WinColor[1];
                        ShowMessage('Joueur 2 GAGNE !');
+                       Inc(score2,1);
+                       result := true;
                    end;
           
         end;
@@ -262,6 +339,21 @@ for J := 0 to 5 do
 
 end;
 
+
+procedure TForm13.Button10Click(Sender: TObject);
+var I : Integer;
+begin
+  InitGrid;
+  for I := 0 to 5 do
+       begin
+         TButton(FindComponent('Button'+IntToStr(I+1))).Enabled := true;
+       end;
+end;
+
+procedure TForm13.Button11Click(Sender: TObject);
+begin
+  Form13.Close;
+end;
 
 procedure TForm13.Button1Click(Sender: TObject);
 begin
@@ -295,10 +387,24 @@ end;
 
 
 
+procedure TForm13.Button9Click(Sender: TObject);
+var I : Integer;
+begin
+  InitGrid;
+  score1 := 0;
+  score2 := 0;
+  afficheScore();
+  for I := 0 to 5 do
+       begin
+         TButton(FindComponent('Button'+IntToStr(I+1))).Enabled := true;
+       end;
+end;
+
 procedure TForm13.changeColor(ACase : array of TShape; AIndex : Integer);
 var
 IndexColor : byte;
 PlayerMark : Integer;
+  I: Integer;
 begin
   if State[AIndex] < 6 then
   begin
@@ -327,10 +433,14 @@ begin
   end else begin
 
   end;
-
-  vertiVerif();
-  horizVerif();
-  diagVErif();
+     if vertiVerif() or horizVerif() or diagVerif() then
+     begin
+       for I := 0 to 5 do
+       begin
+         TButton(FindComponent('Button'+IntToStr(I+1))).Enabled := false;
+       end;
+       afficheScore();
+     end;
   matXP();
 end;
 
