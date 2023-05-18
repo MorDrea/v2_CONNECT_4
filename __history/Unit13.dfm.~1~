@@ -1,0 +1,331 @@
+object Form13: TForm13
+  Left = 0
+  Top = 0
+  Caption = 'Form13'
+  ClientHeight = 668
+  ClientWidth = 866
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object FlowPanel1: TFlowPanel
+    Left = 208
+    Top = 48
+    Width = 401
+    Height = 441
+    BorderStyle = bsSingle
+    ShowCaption = False
+    TabOrder = 0
+    object Shape1: TShape
+      Left = 1
+      Top = 1
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape2: TShape
+      Left = 66
+      Top = 1
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape3: TShape
+      Left = 131
+      Top = 1
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape4: TShape
+      Left = 196
+      Top = 1
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape5: TShape
+      Left = 261
+      Top = 1
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape6: TShape
+      Left = 326
+      Top = 1
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape7: TShape
+      Left = 1
+      Top = 66
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape8: TShape
+      Left = 66
+      Top = 66
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape9: TShape
+      Left = 131
+      Top = 66
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape10: TShape
+      Left = 196
+      Top = 66
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape11: TShape
+      Left = 261
+      Top = 66
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape12: TShape
+      Left = 326
+      Top = 66
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape13: TShape
+      Left = 1
+      Top = 131
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape14: TShape
+      Left = 66
+      Top = 131
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape15: TShape
+      Left = 131
+      Top = 131
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape16: TShape
+      Left = 196
+      Top = 131
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape17: TShape
+      Left = 261
+      Top = 131
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape18: TShape
+      Left = 326
+      Top = 131
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape19: TShape
+      Left = 1
+      Top = 196
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape20: TShape
+      Left = 66
+      Top = 196
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape21: TShape
+      Left = 131
+      Top = 196
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape22: TShape
+      Left = 196
+      Top = 196
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape23: TShape
+      Left = 261
+      Top = 196
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape24: TShape
+      Left = 326
+      Top = 196
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape25: TShape
+      Left = 1
+      Top = 261
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape26: TShape
+      Left = 66
+      Top = 261
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape27: TShape
+      Left = 131
+      Top = 261
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape28: TShape
+      Left = 196
+      Top = 261
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape29: TShape
+      Left = 261
+      Top = 261
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape30: TShape
+      Left = 326
+      Top = 261
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape31: TShape
+      Left = 1
+      Top = 326
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape32: TShape
+      Left = 66
+      Top = 326
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape33: TShape
+      Left = 131
+      Top = 326
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape34: TShape
+      Left = 196
+      Top = 326
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape35: TShape
+      Left = 261
+      Top = 326
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Shape36: TShape
+      Left = 326
+      Top = 326
+      Width = 65
+      Height = 65
+      Shape = stCircle
+    end
+    object Button1: TButton
+      Left = 1
+      Top = 391
+      Width = 65
+      Height = 42
+      Caption = 'Button1'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 66
+      Top = 391
+      Width = 65
+      Height = 42
+      Caption = 'Button2'
+      TabOrder = 1
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 131
+      Top = 391
+      Width = 65
+      Height = 42
+      Caption = 'Button2'
+      TabOrder = 2
+      OnClick = Button3Click
+    end
+    object Button4: TButton
+      Left = 196
+      Top = 391
+      Width = 65
+      Height = 42
+      Caption = 'Button2'
+      TabOrder = 3
+      OnClick = Button4Click
+    end
+    object Button5: TButton
+      Left = 261
+      Top = 391
+      Width = 65
+      Height = 42
+      Caption = 'Button2'
+      TabOrder = 4
+      OnClick = Button5Click
+    end
+    object Button6: TButton
+      Left = 326
+      Top = 391
+      Width = 65
+      Height = 42
+      Caption = 'Button2'
+      TabOrder = 5
+      OnClick = Button6Click
+    end
+  end
+end
